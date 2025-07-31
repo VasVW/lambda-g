@@ -55,7 +55,7 @@ function set_prompt {
     fi
 
     # --- Assemble PS1 ---
-    PS1="${user_color}╭─${username_part}${in_color} in${dir_color} \\w"        # Line 1: env + user + path
+    PS1="${user_color}╭─${username_part}@["$HOSTNAME"]${in_color} in${dir_color} \\w"        # Line 1: env + user + path
     PS1+=" ${git_color}\$(__git_ps1 '[%s]')${reset_color}"        # Git info
 
     if [[ -n "$CMD_DURATION" && "$CMD_DURATION" -gt 0 ]]; then
@@ -66,4 +66,3 @@ function set_prompt {
 
     PS1+="\n${prompt_symbol_color}╰─⌭${reset_color} "             # Line 2: prompt symbol
 }
-
